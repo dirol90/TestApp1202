@@ -50,6 +50,7 @@ class SlideFragment : Fragment() {
                 val pagerAdapter =
                     ScreenSlidePagerAdapter(myContext!!.supportFragmentManager, it.size)
                 mPager!!.adapter = pagerAdapter
+                mPager!!.currentItem = viewModel.getSelecteditem()
             })
         } else {
             val pagerAdapter = ScreenSlidePagerAdapter(
@@ -57,9 +58,10 @@ class SlideFragment : Fragment() {
                 viewModel.getFilmsWithoutDB().size
             )
             mPager!!.adapter = pagerAdapter
+            mPager!!.currentItem = viewModel.getSelecteditem()
         }
 
-        mPager!!.currentItem = viewModel.getSelecteditem()
+
     }
 
 
